@@ -11,6 +11,7 @@ import { AreaComponent } from './widgets/area/area.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -21,18 +22,19 @@ import { PieComponent } from './widgets/pie/pie.component';
     CardComponent,
     PieComponent
   ],
-  imports: [
-    CommonModule,
-    MatDividerModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    MatMenuModule,
-    MatListModule,
-    RouterModule,
-    HighchartsChartModule
-  ],
+    imports: [
+        CommonModule,
+        MatDividerModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        FlexLayoutModule,
+        MatMenuModule,
+        MatListModule,
+        RouterModule,
+        HighchartsChartModule,
+        MatProgressBarModule
+    ],
   exports: [
     HeaderComponent,
     FooterComponent,

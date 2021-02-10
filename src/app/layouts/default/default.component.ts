@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../servicess/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-default',
@@ -8,13 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class DefaultComponent implements OnInit {
 
   sideBarOpen = true;
+  isLoggedIn =  false;
 
-  constructor() { }
+  constructor(private auth:AuthService,private router:Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.isLoggedIn = this.auth.isUserLoggedIn();
+    if (!this.isLoggedIn) {
+       this.router.navigate(['/'])
+    }
+  }
 
 
-  sideBarToggler() {
+  sideBarToggler($event: any) {
     this.sideBarOpen = !this.sideBarOpen;
   }
 

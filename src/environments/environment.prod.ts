@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: "https://seu-class-attencence-system.herokuapp.com/api/v1/"
 };

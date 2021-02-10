@@ -1,10 +1,14 @@
-<mat-toolbar color="primary">
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+  <mat-progress-bar mode="indeterminate" > </mat-progress-bar>
+</div>
+<mat-toolbar >
     <mat-toolbar-row>
         <button mat-icon-button (click)="toggleSideBar()">
             <mat-icon>menu</mat-icon>
         </button>
-
-        <span> APP LOGO </span>
+<!--                <span>-->
+<!--                 <img class="app-logo" src="assets/logo_1.png" alt="logo">-->
+<!--                </span>-->
 
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
@@ -18,18 +22,21 @@
                         <mat-icon>help_outline</mat-icon>
                     </button>
                 </li>
+              <ng-container *ngIf="isUserLoggedIn">
                 <li>
-                    <button mat-button [matMenuTriggerFor]="menu">
-                        <mat-icon>person_outline</mat-icon>
+                  <button mat-button [matMenuTriggerFor]="menu">
+                    <mat-icon>person_outline</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="logoutHandle($event)">
+                      <mat-icon>exit_to_app</mat-icon>
+                      Sign out
                     </button>
-                    <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <mat-icon>exit_to_app</mat-icon>
-                            Sign out
-                        </button>
-                    </mat-menu>
+                  </mat-menu>
 
                 </li>
+              </ng-container>
+
             </ul>
         </div>
     </mat-toolbar-row>

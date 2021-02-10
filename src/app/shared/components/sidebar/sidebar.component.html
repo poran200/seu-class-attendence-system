@@ -1,23 +1,25 @@
 <mat-nav-list>
     <div class="profile-card">
         <div class="header">
-            <h2>Soufiane FADIL</h2>
-            <h4>example@email.com</h4>
+            <h2>{{username}}</h2>
+            <h4>{{username}}@email.com</h4>
         </div>
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+        <img src="https://img.freepik.com/free-vector/man-avatar-profile-round-icon_24640-14044.jpg?size=338&ext=jpg" alt="Soufiane FADIL">
     </div>
 
     <mat-divider></mat-divider>
 
-    <h2 matSubheader>Pages</h2>
+<!--    <h2 matSubheader>Pages</h2>-->
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Posts</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a>
+    <a mat-list-item *ngIf="userIsLoggedIn" routerLinkActive="list-item-active" routerLink="/dashboard">Dashboard</a>
+    <a mat-list-item *ngIf="userIsLoggedIn" routerLinkActive="list-item-active" routerLink="/dashboard/antecedence-sheet">Attendance Sheet</a>
+    <a mat-list-item *ngIf="userIsLoggedIn" routerLinkActive="list-item-active" routerLink="/dashboard/class-log-from">Class Log From</a>
+    <a mat-list-item *ngIf="userIsLoggedIn" routerLinkActive="list-item-active" routerLink="/dashboard/class-log">Class Log</a>
+    <a mat-list-item *ngIf="userIsLoggedIn" routerLinkActive="list-item-active" routerLink="/dashboard/attendance-records">Attendance Records</a>
 
     <mat-divider></mat-divider>
 
-    <h2 matSubheader>Tools</h2>
+<!--    <h2 matSubheader>Tools</h2>-->
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
         <mat-icon>import_contacts</mat-icon>
