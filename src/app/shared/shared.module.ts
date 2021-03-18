@@ -12,6 +12,9 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { BarChartComponent } from './widgets/bar-chart/bar-chart.component';
+import {ChartistModule} from "ng-chartist";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -20,28 +23,32 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     SidebarComponent,
     AreaComponent,
     CardComponent,
-    PieComponent
+    PieComponent,
+    BarChartComponent
   ],
-    imports: [
-        CommonModule,
-        MatDividerModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatButtonModule,
-        FlexLayoutModule,
-        MatMenuModule,
-        MatListModule,
-        RouterModule,
-        HighchartsChartModule,
-        MatProgressBarModule
-    ],
+  imports: [
+    CommonModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatMenuModule,
+    MatListModule,
+    RouterModule,
+    HighchartsChartModule,
+    MatProgressBarModule,
+    ChartistModule,
+    NgxChartsModule
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
     AreaComponent,
     CardComponent,
-    PieComponent
+    PieComponent,
+    BarChartComponent
   ]
 })
 export class SharedModule { }

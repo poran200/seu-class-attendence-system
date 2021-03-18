@@ -100,3 +100,15 @@ mat-card-content{
 mat-card-title{
   color: #65c457;
 }
+.chat-bar{
+  margin-top: 10px;
+}
+.chat-bar > mat-card{
+  display: flex;
+  width: 76%;
+  height: 250px;
+
+}
+.dashboard{
+  padding-bottom: 100px;
+}

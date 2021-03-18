@@ -1,95 +1,91 @@
+<div class = "dashboard">
 
-<div fxLayout="row" fxLayoutAlign="left" fxLayoutGap="20px" class="stats-cards">
-  <mat-card fxFlex="25">
-    <mat-card-header>
-      <mat-card-subtitle>User</mat-card-subtitle>
-      <mat-card-title>{{username}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Logged in user</p>
-    </mat-card-content>
-  </mat-card>
-  <mat-card fxFlex="25">
-    <mat-card-header>
-      <mat-card-subtitle>Students/Sections</mat-card-subtitle>
-      <mat-card-title>{{regStudents}}/ {{sections}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Registered students/sections</p>
-    </mat-card-content>
-  </mat-card>
-  <mat-card fxFlex="25">
-    <mat-card-header>
-      <mat-card-subtitle>Logged/Scheduled</mat-card-subtitle>
-      <mat-card-title>{{classLogged}}/{{scheduled}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Classes logged/scheduled</p>
-    </mat-card-content>
-  </mat-card>
-</div>
-<div class="summary-table">
-  <div fxLayout="row">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Start Date</mat-label>
-      <input matInput [matDatepicker]="picker" name="conductedAt" [(ngModel)]="startDate" (dateChange)="onDateChange()" >
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field class="example-full-width date-piker" appearance="fill">
-      <mat-label>End Date</mat-label>
-      <input matInput [matDatepicker]="picker1" name="conductedAt" [(ngModel)]="endDate" (dateChange)="onDateChange()" >
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="left" fxLayoutGap="20px" class="stats-cards">
+    <mat-card fxFlex="25">
+      <mat-card-header>
+        <mat-card-subtitle>User</mat-card-subtitle>
+        <mat-card-title>{{username}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Logged in user</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="25">
+      <mat-card-header>
+        <mat-card-subtitle>Students/Sections</mat-card-subtitle>
+        <mat-card-title>{{regStudents}}/ {{sections}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Registered students/sections</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="25">
+      <mat-card-header>
+        <mat-card-subtitle>Logged/Scheduled</mat-card-subtitle>
+        <mat-card-title>{{classLogged}}/{{scheduled}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Classes logged/scheduled</p>
+      </mat-card-content>
+    </mat-card>
   </div>
-</div>
-<div fxLayout="column" fxLayoutAlign="center"  >
-  <div  class="summary-table">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <div class="chat-bar">
+    <mat-card >
+      <app-bar-chart [data]="charData"></app-bar-chart>
+    </mat-card>
+  </div>
 
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-      <!-- Checkbox Column -->
-      <!-- Name Column -->
-      <ng-container matColumnDef="sectionId">
-        <th mat-header-cell *matHeaderCellDef> Section </th>
-        <td mat-cell *matCellDef="let element"> {{element.sectionId}} </td>
-      </ng-container>
-      <!-- Name Column -->
-      <ng-container matColumnDef="courseTitle">
-        <th mat-header-cell *matHeaderCellDef> Course Title </th>
-        <td mat-cell *matCellDef="let element"> {{element.courseTitle}} </td>
-      </ng-container>
+  <div class="summary-table">
+    <div fxLayout="row">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="picker" name="conductedAt" [(ngModel)]="startDate" (dateChange)="onDateChange()" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="example-full-width date-piker" appearance="fill">
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="picker1" name="conductedAt" [(ngModel)]="endDate" (dateChange)="onDateChange()" >
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center"  >
+    <div  class="summary-table">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="sectionId">
+          <th mat-header-cell *matHeaderCellDef> Section </th>
+          <td mat-cell *matCellDef="let element"> {{element.sectionId}} </td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="courseTitle">
+          <th mat-header-cell *matHeaderCellDef> Course Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.courseTitle}} </td>
+        </ng-container>
 
-      <!-- Id column -->
-      <ng-container matColumnDef="scheduled">
-        <th mat-header-cell *matHeaderCellDef>Scheduled</th>
-        <td mat-cell *matCellDef="let element"> {{element.scheduled}} </td>
-      </ng-container>
-      <ng-container matColumnDef="logged">
-        <th mat-header-cell *matHeaderCellDef>Logged</th>
-        <td mat-cell *matCellDef="let element"> {{element.logged}} </td>
-      </ng-container>
-      <ng-container matColumnDef="duration">
-        <th mat-header-cell *matHeaderCellDef>Duration</th>
-        <td mat-cell *matCellDef="let element"> {{element.durationToBeTaken}}/{{element.durationTaken}} </td>
-      </ng-container>
-      <ng-container matColumnDef="attendanceRate">
-        <th mat-header-cell *matHeaderCellDef>Attendance Rate</th>
-        <td mat-cell *matCellDef="let element"> {{element.attendanceRate}} % </td>
-      </ng-container>
+        <!-- Id column -->
+        <ng-container matColumnDef="scheduled">
+          <th mat-header-cell *matHeaderCellDef>Scheduled</th>
+          <td mat-cell *matCellDef="let element"> {{element.scheduled}} </td>
+        </ng-container>
+        <ng-container matColumnDef="logged">
+          <th mat-header-cell *matHeaderCellDef>Logged</th>
+          <td mat-cell *matCellDef="let element"> {{element.logged}} </td>
+        </ng-container>
+        <ng-container matColumnDef="duration">
+          <th mat-header-cell *matHeaderCellDef>Duration</th>
+          <td mat-cell *matCellDef="let element"> {{element.durationToBeTaken}}/{{element.durationTaken}} </td>
+        </ng-container>
+        <ng-container matColumnDef="attendanceRate">
+          <th mat-header-cell *matHeaderCellDef>Attendance Rate</th>
+          <td mat-cell *matCellDef="let element"> {{element.attendanceRate}} % </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
 
-      <!--  &lt;!&ndash; Symbol Column &ndash;&gt;-->
-      <!--  <ng-container matColumnDef="symbol">-->
-      <!--    <th mat-header-cell *matHeaderCellDef> Symbol </th>-->
-      <!--    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>-->
-      <!--  </ng-container>-->
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
   </div>
 
 </div>
-

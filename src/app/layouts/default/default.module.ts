@@ -33,6 +33,7 @@ import {MatTimepickerModule} from "mat-timepicker";
 import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 import {ClasslogidService} from "../../servicess/classlogid.service";
 import {HttpIntercptoreServiceService} from "../../servicess/http-intercptore-service.service";
+import {HighchartsChartModule} from "highcharts-angular";
 
 
 @NgModule({
@@ -67,7 +68,7 @@ import {HttpIntercptoreServiceService} from "../../servicess/http-intercptore-se
         MatSelectModule,
         HttpClientModule,
 
-        MatSnackBarModule, MatGridListModule, MatDatepickerModule, MatNativeDateModule, MatTimepickerModule, NgxMaterialTimepickerModule
+        MatSnackBarModule, MatGridListModule, MatDatepickerModule, MatNativeDateModule, MatTimepickerModule, NgxMaterialTimepickerModule, HighchartsChartModule
     ],
     exports: [
         DefaultComponent

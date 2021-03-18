@@ -20,7 +20,7 @@ export class AreaComponent implements OnInit {
   ngOnInit() {
     this.chartOptions = {
       chart: {
-        type: 'area'
+        type: 'bar'
       },
       title: {
         text: 'Random DATA'
@@ -30,7 +30,7 @@ export class AreaComponent implements OnInit {
       },
       tooltip: {
         split: true,
-        valueSuffix: ' millions'
+        valueSuffix: ''
       },
       credits: {
         enabled: false

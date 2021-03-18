@@ -8,6 +8,13 @@ export interface DashboardInfo {
   classLogged:number;
   scheduled:number
   summary:ClassLogSummary[]
+  logChartItems: chartItem[]
+}
+
+export  interface chartItem {
+  courseCode: string;
+  totalScheduled: any;
+  totalLogged: any;
 }
 
 @Injectable({
