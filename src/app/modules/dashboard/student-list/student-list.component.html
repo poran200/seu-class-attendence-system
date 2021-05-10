@@ -1,0 +1,67 @@
+
+<mat-form-field appearance="fill">
+  <mat-label>Section</mat-label>
+  <mat-select>
+    <mat-option *ngFor = "let sec of sections" [value]="sec" (click)="onSelectSection(sec)">
+      {{sec}}</mat-option>
+
+  </mat-select>
+</mat-form-field>
+
+<form class="example-form"><table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+  <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                    [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)"
+                    [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+  <!--  &lt;!&ndash; Position Column &ndash;&gt;-->
+  <!--  <ng-container matColumnDef="position">-->
+  <!--    <th mat-header-cell *matHeaderCellDef> No. </th>-->
+  <!--    <td mat-cell *matCellDef="let element"> {{element.position}} </td>-->
+  <!--  </ng-container>-->
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Id column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!--  &lt;!&ndash; Symbol Column &ndash;&gt;-->
+  <!--  <ng-container matColumnDef="symbol">-->
+  <!--    <th mat-header-cell *matHeaderCellDef> Symbol </th>-->
+  <!--    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>-->
+  <!--  </ng-container>-->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+  <mat-form-field class="example-full-width">
+    <mat-label>Attendance</mat-label>
+      <input type="email" matInput placeholder="attendance text"/>
+  </mat-form-field>
+</form>
+<div class="save-button">
+  <button mat-button color="basic" (click)="onSaveClick()">Save</button>
+</div>
+

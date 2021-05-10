@@ -1,0 +1,119 @@
+
+.night-theme {
+  background: #111d28;
+  color: #cfcfcf;
+  width: 80%;
+  height:  800px;
+}
+
+.handle {
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+  z-index: 100;
+  height: 5px;
+  display: block;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  line-height: 0;
+}
+
+.handle-row {
+  width: 15px;
+  top: 50%;
+  left: -2px;
+  transform: translateX(-50%) rotate(270deg);
+  cursor: col-resize;
+}
+
+.handle-column {
+  height: 15px;
+  left: 50%;
+  top: -4px;
+  cursor: row-resize;
+}
+
+
+.example-full-width {
+  width: 90%;
+
+}
+mat-form-field{
+  color: #cec9c9;
+  padding-left: 20px;
+  padding-top: 2px;
+}
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: green !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: green !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: green !important;
+}
+::ng-deep .mat-form-field-placeholder{
+  color: #cec9c9;
+}
+::ng-deep .mat-focused .mat-form-field-placeholder{
+  color: #cec9c9;
+}
+
+mat-label{
+  color: #cec9c9;
+}
+.mat-input-element{
+  color: #cec9c9;
+}
+::ng-deep .mat-datepicker-toggle-default-icon{
+   color: #cec9c9;
+}
+.mat-button{
+  background-color: green;
+  color: white;
+  width: 90%;
+}
+button{
+  margin-top: 8px;
+  margin-left: 20px;
+}
+.clock{
+  display: flex;
+  width: 90%;
+  margin-left: 20px;
+  padding-top: 5px;
+}
+.clock >input{
+  background-color: #111d28;
+  color: #cec9c9;
+}
+::ng-deep ngx-material-timepicker-toggle {
+   background-color: #cec9c9;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #cec9c9;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #cec9c9;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #cec9c9;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #cec9c9;
+}
+h4{
+ margin-left: 20px;
+}
+.green-snackbar {
+  background: #65c457;
+}
+h6{
+  color: #cec9c9;
+}

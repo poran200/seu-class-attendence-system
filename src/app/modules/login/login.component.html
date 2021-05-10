@@ -1,0 +1,27 @@
+<div class="login">
+  <div class="container">
+    <form #loginfrom="ngForm" (ngSubmit)="onLogin(loginfrom)" class="from" >
+      <h3>Seu Class Log App</h3>
+      <h2>Log In</h2>
+      <div class="from-control">
+        <label >Username</label>
+        <input type="text" name="userName" placeholder = "Enter username"
+           [(ngModel)]="userName" required
+        >
+        <small>Erro massage</small>
+      </div>
+
+      <div class="from-control">
+        <label >Password</label>
+        <input type="password" name="password" placeholder = "Enter password"
+               [(ngModel)]="password" required
+        >
+        <small>Error massage</small>
+      </div>
+      <button class="mdc-button mdc-button--raised">
+        Login
+      </button>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,38 @@
+
+table {
+  width: 100%;
+  background-color: #111d28;
+}
+.save-button{
+ margin-bottom: 30px;
+}
+.mat-button{
+  background-color: #3090cf;
+}
+.mat-cell{
+  color: #cec9c9;
+}
+.mat-header-cell{
+  color: #cec9c9;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  color: #cec9c9;
+}
+
+.example-full-width {
+  width: 100%;
+}
+mat-label{
+  color: #cec9c9;
+}
+::ng-deep .mat-select-value {
+   color:  #cec9c9;
+}
+mat-form-field{
+  width: 80%;
+}
+
+

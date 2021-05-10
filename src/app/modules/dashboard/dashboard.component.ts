@@ -3,7 +3,7 @@ import {DashboardService} from '../dashboard.service';
 import {MatTableDataSource} from '@angular/material';
 import {AuthService} from "../../servicess/auth.service";
 import {Router} from "@angular/router";
-import {series} from "../../shared/widgets/bar-chart/bar-chart.component";
+import {AttendenceSheetService, Week} from "../../servicess/attendence-sheet.service";
 
 
 export interface ClassLogSummary {
@@ -37,10 +37,12 @@ export class DashboardComponent implements OnInit {
   scheduled: number;
   data: any[] = [];
   charData: any[] = [];
+  weeks: Week[];
 
   constructor(private dashboardService: DashboardService,
               private router: Router,
-              public auth: AuthService
+              public auth: AuthService,
+              private attendsService: AttendenceSheetService
   ) {
   }
 
@@ -65,8 +67,10 @@ export class DashboardComponent implements OnInit {
         }
       });
     }
-    this.bigChart();
-    console.log(this.data)
+    this.barChart();
+    this.attendsService.getWeeks().subscribe(res => {
+       this.weeks = res;
+    })
 
   }
 
@@ -75,8 +79,6 @@ export class DashboardComponent implements OnInit {
     if (this.startDate && this.endDate) {
       const dateWithformatEnd = this.getDateWithformat(this.endDate);
       const dateWithformatstart = this.getDateWithformat(this.startDate);
-      console.log(dateWithformatEnd)
-      console.log(dateWithformatstart)
       this.dashboardService.getClassLogSummaryByDate(dateWithformatstart, dateWithformatEnd).subscribe(res => {
         this.dataSource = new MatTableDataSource<ClassLogSummary>(res);
       })
@@ -88,12 +90,12 @@ export class DashboardComponent implements OnInit {
     return date.getMonth() + 1 + "-" + date.getDate() + "-" + date.getFullYear();
   }
 
-  bigChart() {
+  barChart() {
      const classLogName = "Class Logged";
      const classLogScheduledName = "Class Scheduled"
     this.dashboardService.getClassLogSummary().subscribe(res => {
       for (const logChartItem of res.logChartItems) {
-          this.data.push(
+          this.charData.push(
             {
               name: logChartItem.courseCode,
               series: [{
@@ -108,9 +110,17 @@ export class DashboardComponent implements OnInit {
             }
           )
       }
-      console.log(this.data)
+      console.log(this.charData)
     })
 
   }
 
+  onSelectWeek(week: Week) {
+     this.startDate = week.start;
+     this.endDate = week.end;
+     console.log(this.startDate + " " + this.endDate);
+    // this.dashboardService.getClassLogSummaryByDate(this.startDate, this.endDate).subscribe(res => {
+    //   this.dataSource = new MatTableDataSource<ClassLogSummary>(res);
+    // })
+  }
 }

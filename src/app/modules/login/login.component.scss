@@ -1,0 +1,101 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+
+:root {
+  --susccess-color: lightgreen;
+  --error-color: lightcoral;
+  --back-ground-color: #13202e;
+}
+//*{
+//  box-sizing: border-box;
+//}
+
+
+.container{
+  background-color: #cec9c9;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0,0.3);
+  width: 400px;
+}
+h2{
+  text-align: center;
+  margin:0 0 20px;
+  color: rgb(15, 197, 15);
+}
+h3{
+  text-align: center;
+  margin:0 0 20px;
+  color: rgb(15, 197, 15);
+}
+.from{
+  padding: 30px 40px;
+  background-color:#13202e;
+
+}
+
+.from-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.from-control label{
+  color: rgb(255, 255, 255);
+  display: block;
+  margin-bottom: 5px;
+
+}
+.from-control input{
+  border: 2px solid #376275;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+.from-control input:focus{
+  outline: 0;
+  border-color: #777;
+}
+.from-control.success input{
+  border-color: rgb(15, 197, 15);
+}
+.from-control.error input{
+  border-color: var(--error-color);
+}
+.from-control small{
+  color: var(--error-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+
+}
+.from-control.error small{
+  visibility:visible;
+
+}
+.from button{
+  cursor: pointer;
+  background-color: #3090cf;
+  border: 2px solid #3090cf;
+  border-radius: 4px;
+  color: white;
+  display:  block;
+  font-size: 16px;
+  padding:10px;
+  margin-top: 20px;
+  width: 100%;
+}
+input{
+  background-color: #13202e;
+  color: #cec9c9;
+}
+.login{
+  display: flex;
+  font-family: 'Open Sans',sans-serif;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #182a3e;
+}

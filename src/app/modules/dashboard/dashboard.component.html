@@ -29,14 +29,22 @@
       </mat-card-content>
     </mat-card>
   </div>
-  <div class="chat-bar">
-    <mat-card >
-      <app-bar-chart [data]="charData"></app-bar-chart>
-    </mat-card>
-  </div>
+<!--  <div class="chat-bar">-->
+<!--    <mat-card >-->
+<!--      <app-bar-chart [data]="charData"></app-bar-chart>-->
+<!--    </mat-card>-->
+<!--  </div>-->
 
   <div class="summary-table">
     <div fxLayout="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Section</mat-label>
+        <mat-select>
+          <mat-option *ngFor = "let week of weeks" [value]="week" (click)="onSelectWeek(week)">
+            Week {{week.weekNumber}}</mat-option>
+
+        </mat-select>
+      </mat-form-field>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Start Date</mat-label>
         <input matInput [matDatepicker]="picker" name="conductedAt" [(ngModel)]="startDate" (dateChange)="onDateChange()" >

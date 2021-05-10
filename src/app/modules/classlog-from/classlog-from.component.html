@@ -1,0 +1,72 @@
+
+<div class="night-theme">
+  <div fxLayout="column" fxLayout.xs="column">
+    <form #classLogForm = "ngForm" (ngSubmit)="onSubmit(classLogForm)">
+      <!--      section-->
+      <mat-form-field class="example-full-width">
+        <mat-label>Section</mat-label>
+        <input matInput disabled name="section" [(ngModel)]="section" placeholder="" value="{{section}}" >
+      </mat-form-field>
+      <!--      schedule-->
+      <mat-form-field class="example-full-width">
+        <mat-label>Schedule</mat-label>
+        <input matInput disabled name="schedule" [(ngModel)] = "schedule" placeholder="" value="{{schedule}}">
+      </mat-form-field>
+      <!--    created at-->
+      <mat-form-field class="example-full-width">
+        <mat-label>Created at</mat-label>
+        <input matInput disabled name="createdAt" [(ngModel)] = "createdAt" placeholder="" value="{{createdAt}}">
+      </mat-form-field>
+      <!--    updated at-->
+      <mat-form-field class="example-full-width" >
+        <mat-label>Updated at</mat-label>
+        <input matInput disabled name="updatedAt" [(ngModel)] = "updatedAt" placeholder="" value="{{updatedAt}}"/>
+      </mat-form-field>
+      <!--attended-->
+      <mat-form-field class="example-full-width" >
+        <mat-label>Attended</mat-label>
+        <input matInput disabled name="attend" [(ngModel)] = "attend" placeholder="" value="{{attend}}"/>
+      </mat-form-field>
+      <!-- Registered-->
+      <mat-form-field class="example-full-width" >
+        <mat-label>Registered</mat-label>
+        <input matInput disabled name="registered" [(ngModel)] = "registered" placeholder="" value="{{registered}}"/>
+      </mat-form-field>
+      <!--  date piker  -->
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Conducted At</mat-label>
+        <input matInput [matDatepicker]="picker" name="conductedAt" [(ngModel)]="conductedAt" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+       <div class="clock">
+
+         <input matInput [ngxTimepicker]="toggleTimepicker" [disableClick]="true"
+                placeholder="Class started"
+                (change)="updatedTime($event)" required
+                readonly name="startTime" [(ngModel)]="startTime" value="{{startTime}}"
+         >
+         <ngx-material-timepicker-toggle [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
+         <ngx-material-timepicker #toggleTimepicker></ngx-material-timepicker>
+       </div>
+      <div class="clock">
+        <input matInput [ngxTimepicker]="toggleTimepicker1" [disableClick]="true"
+               placeholder="Class ended"
+               (change)="updatedTime($event)" required
+               readonly name="endTime" [(ngModel)]="endTime" value="{{endTime}}"
+        >
+        <ngx-material-timepicker-toggle [for]="toggleTimepicker1"></ngx-material-timepicker-toggle>
+        <ngx-material-timepicker #toggleTimepicker1></ngx-material-timepicker>
+      </div>
+       <h4>
+         Duration:  {{getDuration(startTime, endTime)}} minutes
+       </h4>
+
+        <button mat-button color="primary">Save</button>
+
+
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<mat-form-field appearance="fill">
+  <mat-label>Section</mat-label>
+  <mat-select>
+    <mat-option *ngFor = "let sec of sections" [value]="sec" (click)="onSelectSection(sec)">
+      {{sec}}</mat-option>
+
+  </mat-select>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element?.student.name}} </td>
+  </ng-container>
+
+  <!-- Id column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element?.student.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="attendances">
+    <th mat-header-cell *matHeaderCellDef> Attendance </th>
+    <td mat-cell *matCellDef="let element"> {{element?.attendances}} % </td>
+  </ng-container>
+
+  <!--  &lt;!&ndash; Symbol Column &ndash;&gt;-->
+  <!--  <ng-container matColumnDef="symbol">-->
+  <!--    <th mat-header-cell *matHeaderCellDef> Symbol </th>-->
+  <!--    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>-->
+  <!--  </ng-container>-->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
