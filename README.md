@@ -1,18 +1,17 @@
-# Dashboard
+# SEU Class Log Application
+This project uses southeast university faculty here I clone it mini version
+# app features
+  * Authentication and authorization (Faculty members)
+  * Log there classes information  which is the save on a database also its uneatable
+  * select based on their course assign the current semester sections and give the attendance of each student
+  * faculty can show the attendance parentage for each student in section 
+  * statistic  bar chart (processing)
+  * department chairman report and features  (processing)   
+  * export csv on report table (processing)
+  
+[Project over view ]()
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4.
-
-# Making of
-
-Youtube: https://youtu.be/FP7Hs8lTy1k
-
-# Buy me a drink? :)
-
-[Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=soufianosse@gmail.com&lc=US&no_note=0&item_name=Buy+me+a+bear&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted)
-
-# Demo 
-
-![image](https://user-images.githubusercontent.com/4992012/68629236-59dd8b00-04e3-11ea-85f1-cc42419d4949.png)
 
 
 
